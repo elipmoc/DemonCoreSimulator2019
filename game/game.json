@@ -1,0 +1,119 @@
+{
+	"width": 800,
+	"height": 600,
+	"fps": 30,
+	"main": "./script/main.js",
+	"assets": {
+		"player": {
+			"type": "image",
+			"width": 32,
+			"height": 32,
+			"path": "image/player.png"
+		},
+		"demonCore": {
+			"type": "image",
+			"width": 400,
+			"height": 200,
+			"path": "image/DemonCore.png"
+		},
+		"shot": {
+			"type": "image",
+			"width": 16,
+			"height": 16,
+			"path": "image/shot.png"
+		},
+		"se": {
+			"type": "audio",
+			"path": "audio/se",
+			"systemId": "sound",
+			"duration": 250
+		},
+		"main": {
+			"type": "script",
+			"path": "script/main.js",
+			"global": true
+		},
+		"SampleScene": {
+			"type": "script",
+			"path": "script/scenes/SampleScene.js",
+			"global": true
+		},
+		"Player": {
+			"type": "script",
+			"path": "script/Player.js",
+			"global": true
+		},
+		"PlayScene": {
+			"type": "script",
+			"path": "script/scenes/PlayScene.js",
+			"global": true
+		},
+		"CreateParameter": {
+			"type": "script",
+			"path": "script/CreateParameter.js",
+			"global": true
+		},
+		"Floor": {
+			"type": "script",
+			"path": "script/entities/Floor.js",
+			"global": true
+		},
+		"driver": {
+			"type": "image",
+			"width": 200,
+			"height": 43,
+			"path": "image/Driver.png"
+		},
+		"Driver": {
+			"type": "script",
+			"path": "script/entities/Driver.js",
+			"global": true
+		},
+		"DemonCore": {
+			"type": "script",
+			"path": "script/entities/demon_core/DemonCore.js",
+			"global": true
+		},
+		"exp": {
+			"type": "image",
+			"width": 800,
+			"height": 600,
+			"path": "image/exp.jpg"
+		},
+		"Exp": {
+			"type": "script",
+			"path": "script/entities/Exp.js",
+			"global": true
+		},
+		"EndScene": {
+			"type": "script",
+			"path": "script/scenes/EndScene.js",
+			"global": true
+		},
+		"DemonCores": {
+			"type": "script",
+			"path": "script/entities/demon_core/DemonCores.js",
+			"global": true
+		},
+		"expSe": {
+			"type": "audio",
+			"path": "audio/expSe",
+			"systemId": "sound",
+			"duration": 941
+		}
+	},
+	"environment": {
+		"sandbox-runtime": "2"
+	},
+	"globalScripts": [
+		"node_modules/@akashic-extension/akashic-box2d/lib/BodyType.js",
+		"node_modules/@akashic-extension/akashic-box2d/lib/Box2D.js",
+		"node_modules/@akashic-extension/akashic-box2d/lib/Box2DOptions.js",
+		"node_modules/@akashic-extension/akashic-box2d/lib/index.js",
+		"node_modules/box2dweb/box2d.js"
+	],
+	"moduleMainScripts": {
+		"@akashic-extension/akashic-box2d": "node_modules/@akashic-extension/akashic-box2d/lib/index.js",
+		"box2dweb": "node_modules/box2dweb/box2d.js"
+	}
+}
