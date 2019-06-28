@@ -1,8 +1,7 @@
-import { PlayScene } from "./scenes/PlayScene";
-import { EndScene } from "./scenes/EndScene";
+import { TitleScene } from "./scenes/TitleScene";
 
 function main(param: g.GameMainParameterObject): void {
-	g.game.pushScene(EndScene());
+	g.game.pushScene(TitleScene());
 }
 
 export =main;

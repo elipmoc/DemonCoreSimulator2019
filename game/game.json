@@ -33,16 +33,6 @@
 			"path": "script/main.js",
 			"global": true
 		},
-		"SampleScene": {
-			"type": "script",
-			"path": "script/scenes/SampleScene.js",
-			"global": true
-		},
-		"Player": {
-			"type": "script",
-			"path": "script/Player.js",
-			"global": true
-		},
 		"PlayScene": {
 			"type": "script",
 			"path": "script/scenes/PlayScene.js",
@@ -100,6 +90,22 @@
 			"path": "audio/expSe",
 			"systemId": "sound",
 			"duration": 941
+		},
+		"go": {
+			"type": "image",
+			"width": 489,
+			"height": 301,
+			"path": "image/go.png"
+		},
+		"goButton": {
+			"type": "script",
+			"path": "script/entities/goButton.js",
+			"global": true
+		},
+		"TitleScene": {
+			"type": "script",
+			"path": "script/scenes/TitleScene.js",
+			"global": true
 		}
 	},
 	"environment": {
