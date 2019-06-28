@@ -92,12 +92,17 @@
 		},
 		"GoButton": {
 			"type": "script",
-			"path": "script/entities/GoButton.js",
+			"path": "script/ui_parts/GoButton.js",
 			"global": true
 		},
 		"Title": {
 			"type": "script",
-			"path": "script/entities/Title.js",
+			"path": "script/ui_parts/Title.js",
+			"global": true
+		},
+		"versionText": {
+			"type": "script",
+			"path": "script/ui_parts/versionText.js",
 			"global": true
 		}
 	},
