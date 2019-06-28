@@ -23,9 +23,38 @@ export class Driver extends g.Sprite {
         });
 
         const b2body = box2d.createBody(this, bodyDef, fixtureDef).b2body;
+
+
+        scene.pointMoveCapture.add((e) => {
+            if (e.target && e.target.id == this.id) return;
+            b2body.SetAngle(Math.atan2(this.y - e.point.y - e.startDelta.y, this.x - e.point.x - e.startDelta.x))
+        });
+        scene.pointDownCapture.add((e) => {
+            if (e.target && e.target.id == this.id) return;
+            b2body.SetAngle(Math.atan2(this.y - e.point.y, this.x - e.point.x))
+        });
+
+        const Q_KEY = 81;
+        const E_KEY = 69;
+        let keyCode = 0;
+        document.onkeydown = e => {
+            keyCode = e.keyCode === Q_KEY || e.keyCode === E_KEY ? e.keyCode : 0;
+        };
+
+        document.onkeyup = e => {
+            keyCode = e.keyCode === Q_KEY || e.keyCode === E_KEY ? 0 : e.keyCode;
+        };
+
+        this.update.add(() => {
+            if (keyCode === Q_KEY)
+                b2body.SetAngle(b2body.GetAngle() - 2 * Math.PI / 180);
+            if (keyCode === E_KEY)
+                b2body.SetAngle(b2body.GetAngle() + 2 * Math.PI / 180);
+        })
+
         this.touchable = true;
         this.pointUp.add(() => { b2body.SetType(b2.BodyType.Dynamic); });
-        this.pointMove.add(({ prevDelta }) => {
+        this.pointMove.add(({ prevDelta, pointerId }) => {
             b2body.SetType(b2.BodyType.Static);
             this.x += prevDelta.x;
             this.y += prevDelta.y;
