@@ -7,6 +7,8 @@ export class GoButton extends g.Sprite {
             src,
             width: src.width,
             height: src.height,
+            y: 300,
+            x: g.game.width / 2 - src.width / 2
         });
 
         this.touchable = true;

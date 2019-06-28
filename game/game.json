@@ -79,14 +79,25 @@
 			"height": 301,
 			"path": "image/go.png"
 		},
-		"goButton": {
-			"type": "script",
-			"path": "script/entities/goButton.js",
-			"global": true
-		},
 		"TitleScene": {
 			"type": "script",
 			"path": "script/scenes/TitleScene.js",
+			"global": true
+		},
+		"title": {
+			"type": "image",
+			"width": 1047,
+			"height": 280,
+			"path": "image/title.png"
+		},
+		"GoButton": {
+			"type": "script",
+			"path": "script/entities/GoButton.js",
+			"global": true
+		},
+		"Title": {
+			"type": "script",
+			"path": "script/entities/Title.js",
 			"global": true
 		}
 	},
