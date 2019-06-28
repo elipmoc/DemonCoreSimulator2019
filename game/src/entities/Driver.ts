@@ -37,13 +37,15 @@ export class Driver extends g.Sprite {
         const Q_KEY = 81;
         const E_KEY = 69;
         let keyCode = 0;
-        document.onkeydown = e => {
+        parent.addEventListener("keydown", e => {
+            console.log("down")
             keyCode = e.keyCode === Q_KEY || e.keyCode === E_KEY ? e.keyCode : 0;
-        };
+        });
 
-        document.onkeyup = e => {
+        parent.addEventListener("keyup", e => {
+            console.log("up")
             keyCode = e.keyCode === Q_KEY || e.keyCode === E_KEY ? 0 : e.keyCode;
-        };
+        });
 
         this.update.add(() => {
             if (keyCode === Q_KEY)
@@ -54,7 +56,7 @@ export class Driver extends g.Sprite {
 
         this.touchable = true;
         this.pointUp.add(() => { b2body.SetType(b2.BodyType.Dynamic); });
-        this.pointMove.add(({ prevDelta, pointerId }) => {
+        this.pointMove.add(({ prevDelta }) => {
             b2body.SetType(b2.BodyType.Static);
             this.x += prevDelta.x;
             this.y += prevDelta.y;
