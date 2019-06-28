@@ -12,8 +12,8 @@ export class DemonCores extends g.E {
 
         this.update.add(() => {
             if (
-                Math.abs(upperDemonCore.angle - lowerDemonCore.angle) < 0.1
-                && Math.abs(upperDemonCore.y + upperDemonCore.srcHeight - 30 - lowerDemonCore.y) < 1
+                (Math.abs(upperDemonCore.angle - lowerDemonCore.angle) % 360) < 0.1
+                && Math.abs(upperDemonCore.y + Math.cos(Math.PI * upperDemonCore.angle / 180) * ((upperDemonCore.srcHeight - 100 * (1 - Math.abs(upperDemonCore.scaleY)))) - lowerDemonCore.y) < 1
             ) {
                 seSrc.play();
                 g.game.replaceScene(EndScene());
