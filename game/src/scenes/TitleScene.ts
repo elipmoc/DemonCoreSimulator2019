@@ -1,6 +1,6 @@
 import { GoButton } from "../ui_parts/GoButton";
 import { Title } from "../ui_parts/Title";
-import { VersionText } from "../ui_parts/versionText";
+import { VersionText } from "../ui_parts/VersionText";
 
 export function TitleScene() {
     const scene = new g.Scene({
