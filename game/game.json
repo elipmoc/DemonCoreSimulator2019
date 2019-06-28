@@ -22,12 +22,6 @@
 			"height": 16,
 			"path": "image/shot.png"
 		},
-		"se": {
-			"type": "audio",
-			"path": "audio/se",
-			"systemId": "sound",
-			"duration": 250
-		},
 		"main": {
 			"type": "script",
 			"path": "script/main.js",
