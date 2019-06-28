@@ -38,12 +38,10 @@ export class Driver extends g.Sprite {
         const E_KEY = 69;
         let keyCode = 0;
         parent.addEventListener("keydown", e => {
-            console.log("down")
             keyCode = e.keyCode === Q_KEY || e.keyCode === E_KEY ? e.keyCode : 0;
         });
 
         parent.addEventListener("keyup", e => {
-            console.log("up")
             keyCode = e.keyCode === Q_KEY || e.keyCode === E_KEY ? 0 : e.keyCode;
         });
 
