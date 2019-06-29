@@ -100,9 +100,14 @@
 			"path": "script/ui_parts/Title.js",
 			"global": true
 		},
-		"versionText": {
+		"CriticalText": {
 			"type": "script",
-			"path": "script/ui_parts/versionText.js",
+			"path": "script/ui_parts/CriticalText.js",
+			"global": true
+		},
+		"VersionText": {
+			"type": "script",
+			"path": "script/ui_parts/VersionText.js",
 			"global": true
 		}
 	},
