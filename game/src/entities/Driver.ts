@@ -16,21 +16,24 @@ export class Driver extends g.Sprite {
             density: 1.0,
             friction: 0.5,
             restitution: 0.6,
-            shape: box2d.createRectShape(this.width, this.height - 25)
+            shape: box2d.createRectShape(this.width, this.height - 30)
         });
         const bodyDef = box2d.createBodyDef({
             type: b2.BodyType.Static
         });
 
         const b2body = box2d.createBody(this, bodyDef, fixtureDef).b2body;
-
+        let ignoreClick = true;
+        setTimeout(() => {
+            ignoreClick = false;
+        }, 1000);
 
         scene.pointMoveCapture.add((e) => {
-            if (e.target && e.target.id == this.id) return;
+            if (e.target && e.target.id == this.id || ignoreClick) return;
             b2body.SetAngle(Math.atan2(this.y - e.point.y - e.startDelta.y, this.x - e.point.x - e.startDelta.x))
         });
         scene.pointDownCapture.add((e) => {
-            if (e.target && e.target.id == this.id) return;
+            if (e.target && e.target.id == this.id || ignoreClick) return;
             b2body.SetAngle(Math.atan2(this.y - e.point.y, this.x - e.point.x))
         });
 
