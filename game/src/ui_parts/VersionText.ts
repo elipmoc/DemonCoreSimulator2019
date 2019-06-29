@@ -1,4 +1,4 @@
-const TEXT = "ver 2.0";
+const TEXT = "ver 3.0";
 
 export class VersionText extends g.Label {
     constructor(scene: g.Scene) {
