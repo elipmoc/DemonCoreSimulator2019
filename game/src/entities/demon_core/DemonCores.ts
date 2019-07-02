@@ -9,7 +9,7 @@ export class DemonCores extends g.E {
     constructor(createParameter: CreateParameter, src: g.ImageAsset, seSrc: g.AudioAsset) {
         super({ scene: createParameter.scene });
         this.lowerDemonCore = new DemonCore(createParameter, src, { scaleX: 1, scaleY: 1, y: 350 });
-        this.upperDemonCore = new DemonCore(createParameter, src, { scaleX: 0.7, scaleY: -0.7, y: 130 });
+        this.upperDemonCore = new DemonCore(createParameter, src, { scaleX: 0.7, scaleY: -0.7, y: -100 });
         this.append(this.lowerDemonCore);
         this.append(this.upperDemonCore);
 

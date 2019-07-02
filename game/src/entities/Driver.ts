@@ -8,7 +8,7 @@ export class Driver extends g.Sprite {
             src,
             width: src.width,
             height: src.height,
-            x: g.game.width / 2 + 100,
+            x: g.game.width / 2 + 200,
             y: g.game.height - 280
         });
 
