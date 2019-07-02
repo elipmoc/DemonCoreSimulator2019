@@ -109,6 +109,17 @@
 			"type": "script",
 			"path": "script/ui_parts/VersionText.js",
 			"global": true
+		},
+		"flash": {
+			"type": "image",
+			"width": 800,
+			"height": 600,
+			"path": "image/flash.png"
+		},
+		"Flash": {
+			"type": "script",
+			"path": "script/ui_parts/Flash.js",
+			"global": true
 		}
 	},
 	"environment": {
