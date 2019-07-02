@@ -15,7 +15,7 @@ export class Driver extends g.Sprite {
         const fixtureDef = box2d.createFixtureDef({
             density: 1.0,
             friction: 0.5,
-            restitution: 0.6,
+            restitution: 0.3,
             shape: box2d.createRectShape(this.width, this.height - 30)
         });
         const bodyDef = box2d.createBodyDef({
