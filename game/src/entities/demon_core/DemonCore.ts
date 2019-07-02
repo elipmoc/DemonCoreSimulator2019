@@ -27,7 +27,14 @@ export class DemonCore extends g.Sprite {
             shape: box2d.createPolygonShape(this.CreatePolygonShape()) //box2d.createRectShape(this.width * scaleX, this.height * Math.abs(scaleY)) // 形状
         })
         const bodydef = box2d.createBodyDef({ type: b2.BodyType.Dynamic });
-        box2d.createBody(this, bodydef, fixturedef);
+        const b2body = box2d.createBody(this, bodydef, fixturedef).b2body;
+
+        this.update.add(() => {
+            if (this.y > g.game.height + 50) {
+                b2body.SetPosition(new b2.Box2DWeb.Common.Math.b2Vec2((g.game.width / 2 - this.width / 2) / 50, -100 / 50));
+                b2body.SetType(b2.BodyType.Dynamic);
+            }
+        })
     }
 
     private CreatePolygonShape() {
