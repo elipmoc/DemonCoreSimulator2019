@@ -3,7 +3,7 @@ import * as b2 from "@akashic-extension/akashic-box2d";
 import { Floor } from "../entities/Floor";
 import { Driver } from "../entities/Driver";
 import { CriticalText } from "../ui_parts/CriticalText";
-import { Flash, Level } from "../ui_parts/Flash";
+import { Flash } from "../ui_parts/Flash";
 
 export function PlayScene() {
     const scene = new g.Scene({
@@ -17,7 +17,6 @@ export function PlayScene() {
         scale: 50,
         sleep: false
     });
-
     scene.loaded.add(() => {
         const demonCores = new DemonCores(
             { scene, box2d },
