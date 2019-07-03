@@ -19,7 +19,6 @@ export class DemonCore extends g.Sprite {
             height: src.height,
             scaleX,
             scaleY,
-            opacity: 0.6
         });
         this.x = g.game.width / 2 - this.width / 2;
         this.y = y;
