@@ -9,7 +9,7 @@ export function PlayScene() {
     const scene = new g.Scene({
         game: g.game,
         // このシーンで利用するアセットのIDを列挙し、シーンに通知します
-        assetIds: ["demonCore", "driver", "expSe", "flash"]
+        assetIds: ["demonCore", "driver", "expSe", "flash", "exp"]
     });
 
     const box2d = new b2.Box2D({
