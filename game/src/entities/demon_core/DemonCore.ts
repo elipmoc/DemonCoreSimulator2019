@@ -1,10 +1,13 @@
 import * as b2 from "@akashic-extension/akashic-box2d";
 import { CreateParameter } from "../../CreateParameter";
+import { DebugCircle } from "./DebugCircle";
 
 const Vec2 = b2.Box2DWeb.Common.Math.b2Vec2;
 type Vec2 = b2.Box2DWeb.Common.Math.b2Vec2;
 
 export class DemonCore extends g.Sprite {
+    private b2body: b2.Box2DWeb.Dynamics.b2Body;
+
     constructor(
         { scene, box2d }: CreateParameter,
         src: g.ImageAsset,
@@ -15,7 +18,8 @@ export class DemonCore extends g.Sprite {
             width: src.width,
             height: src.height,
             scaleX,
-            scaleY
+            scaleY,
+            opacity: 0.6
         });
         this.x = g.game.width / 2 - this.width / 2;
         this.y = y;
@@ -24,17 +28,31 @@ export class DemonCore extends g.Sprite {
             density: 1.0, // 密度
             friction: 0.5, // 摩擦係数
             restitution: 0.3, // 反発係数
-            shape: box2d.createPolygonShape(this.CreatePolygonShape()) //box2d.createRectShape(this.width * scaleX, this.height * Math.abs(scaleY)) // 形状
+            shape: box2d.createPolygonShape(this.CreatePolygonShape())
         })
         const bodydef = box2d.createBodyDef({ type: b2.BodyType.Dynamic });
-        const b2body = box2d.createBody(this, bodydef, fixturedef).b2body;
+        this.b2body = box2d.createBody(this, bodydef, fixturedef).b2body;
+
+        // const debugCircle = new DebugCircle(scene);
+        //this.scene.append(debugCircle);
 
         this.update.add(() => {
+            /*  debugCircle.x = this.CenterX;
+              debugCircle.y = this.CenterY;
+              debugCircle.modified();*/
             if (this.y > g.game.height + 50) {
-                b2body.SetPosition(new b2.Box2DWeb.Common.Math.b2Vec2((g.game.width / 2 - this.width / 2) / 50, -100 / 50));
-                b2body.SetType(b2.BodyType.Dynamic);
+                this.b2body.SetPosition(new b2.Box2DWeb.Common.Math.b2Vec2((g.game.width / 2 - this.width / 2) / 50, -100 / 50));
+                this.b2body.SetType(b2.BodyType.Dynamic);
             }
         })
+    }
+
+    get CenterX() {
+        return this.b2body.GetPosition().x * 50 + Math.sin(Math.PI * this.angle / 180) * this.scaleY * this.height / 2;
+    }
+
+    get CenterY() {
+        return this.b2body.GetPosition().y * 50 - Math.cos(Math.PI * this.angle / 180) * this.scaleY * this.height / 2;
     }
 
     private CreatePolygonShape() {

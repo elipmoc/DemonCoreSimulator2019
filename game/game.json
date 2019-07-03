@@ -120,6 +120,11 @@
 			"type": "script",
 			"path": "script/ui_parts/Flash.js",
 			"global": true
+		},
+		"DebugCircle": {
+			"type": "script",
+			"path": "script/entities/demon_core/DebugCircle.js",
+			"global": true
 		}
 	},
 	"environment": {
