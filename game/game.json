@@ -100,9 +100,30 @@
 			"path": "script/ui_parts/Title.js",
 			"global": true
 		},
-		"versionText": {
+		"CriticalText": {
 			"type": "script",
-			"path": "script/ui_parts/versionText.js",
+			"path": "script/ui_parts/CriticalText.js",
+			"global": true
+		},
+		"VersionText": {
+			"type": "script",
+			"path": "script/ui_parts/VersionText.js",
+			"global": true
+		},
+		"flash": {
+			"type": "image",
+			"width": 800,
+			"height": 600,
+			"path": "image/flash.png"
+		},
+		"Flash": {
+			"type": "script",
+			"path": "script/ui_parts/Flash.js",
+			"global": true
+		},
+		"DebugCircle": {
+			"type": "script",
+			"path": "script/entities/demon_core/DebugCircle.js",
 			"global": true
 		}
 	},

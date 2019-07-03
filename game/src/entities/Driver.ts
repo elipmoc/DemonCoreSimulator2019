@@ -1,6 +1,9 @@
 import * as b2 from "@akashic-extension/akashic-box2d";
 import { CreateParameter } from "../CreateParameter";
 
+const BASE_X = g.game.width / 2 + 200;
+const BASE_Y = g.game.height - 280;
+
 export class Driver extends g.Sprite {
     constructor({ scene, box2d }: CreateParameter, src: g.ImageAsset) {
         super({
@@ -8,29 +11,32 @@ export class Driver extends g.Sprite {
             src,
             width: src.width,
             height: src.height,
-            x: g.game.width / 2 + 100,
-            y: g.game.height - 280
+            x: BASE_X,
+            y: BASE_Y
         });
 
         const fixtureDef = box2d.createFixtureDef({
             density: 1.0,
             friction: 0.5,
-            restitution: 0.6,
-            shape: box2d.createRectShape(this.width, this.height - 25)
+            restitution: 0.3,
+            shape: box2d.createRectShape(this.width, this.height - 30)
         });
         const bodyDef = box2d.createBodyDef({
             type: b2.BodyType.Static
         });
 
         const b2body = box2d.createBody(this, bodyDef, fixtureDef).b2body;
-
+        let ignoreClick = true;
+        setTimeout(() => {
+            ignoreClick = false;
+        }, 1000);
 
         scene.pointMoveCapture.add((e) => {
-            if (e.target && e.target.id == this.id) return;
+            if (e.target && e.target.id == this.id || ignoreClick) return;
             b2body.SetAngle(Math.atan2(this.y - e.point.y - e.startDelta.y, this.x - e.point.x - e.startDelta.x))
         });
         scene.pointDownCapture.add((e) => {
-            if (e.target && e.target.id == this.id) return;
+            if (e.target && e.target.id == this.id || ignoreClick) return;
             b2body.SetAngle(Math.atan2(this.y - e.point.y, this.x - e.point.x))
         });
 
@@ -50,6 +56,11 @@ export class Driver extends g.Sprite {
                 b2body.SetAngle(b2body.GetAngle() - 2 * Math.PI / 180);
             if (keyCode === E_KEY)
                 b2body.SetAngle(b2body.GetAngle() + 2 * Math.PI / 180);
+            if (this.y > g.game.height + 50) {
+                this.y = BASE_Y;
+                this.x = BASE_X;
+                b2body.SetType(b2.BodyType.Static);
+            }
         })
 
         this.touchable = true;
