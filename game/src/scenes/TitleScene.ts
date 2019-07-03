@@ -5,7 +5,7 @@ import { VersionText } from "../ui_parts/VersionText";
 export function TitleScene() {
     const scene = new g.Scene({
         game: g.game,
-        assetIds: ["go", "title"],
+        assetIds: ["go", "title", "expSe"],
     });
 
     scene.loaded.add(() => {
